@@ -32,6 +32,7 @@ public class LobbyCountdown extends Countdown {
                         break;
                     case 0:
                         Main.getGameStateManager().setGameState(GameState.INGAME_STATE);
+                        break;
                         default:
                             break;
                 }

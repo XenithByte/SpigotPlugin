@@ -15,7 +15,7 @@ public class Main extends JavaPlugin {
 
     private static Main plugin;
     private static String prefix = "§8[§eSkyWars§8]§7 ",
-                          no_permission = prefix + "Dazu hast du §ckeine Rexhte§7!";
+                          no_permission = prefix + "Dazu hast du §ckeine Rechte§7!";
     private ArrayList<Player> players;
 
     private static GameStateManager gameStateManager;
