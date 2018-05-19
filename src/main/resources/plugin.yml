@@ -1,3 +1,5 @@
 main: de.xenithbyte.minigame.main.Main
 version: 1.0
-name: MiniGame
+name: Skywars
+commands:
+   start:

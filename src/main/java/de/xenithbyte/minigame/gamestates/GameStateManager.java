@@ -23,4 +23,7 @@ public class GameStateManager {
         currentGameState = null;
     }
 
+    public GameState getCurrentGameState() {
+        return currentGameState;
+    }
 }
