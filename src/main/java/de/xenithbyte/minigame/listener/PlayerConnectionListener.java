@@ -23,7 +23,7 @@ public class PlayerConnectionListener implements Listener {
         if(gameStateManager.getCurrentGameState() instanceof LobbyState) {
             LobbyState lobbyState = (LobbyState) gameStateManager.getCurrentGameState();
             Main.getPlugin().getPlayers().add(p);
-            e.setJoinMessage(Main.getPrefix() + "§a" + p.getName() + "§7 hat das Spiel betreten. §8[§e" + Main.getPlugin().getPlayers().size() + "§7/§e " + LobbyState.MAX_PLAYERS +"§8]");
+            e.setJoinMessage(Main.getPrefix() + "§a" + p.getName() + "§7 hat das Spiel betreten. §8[§e" + Main.getPlugin().getPlayers().size() + "§7/§e" + LobbyState.MAX_PLAYERS +"§8]");
             if(Main.getPlugin().getPlayers().size() >= LobbyState.MIN_PLAYERS) {
                 if(!lobbyState.getLobbyCountdown().isRunning()) {
                     if(lobbyState.getLobbyCountdown().isIdling())
@@ -40,7 +40,7 @@ public class PlayerConnectionListener implements Listener {
         if(gameStateManager.getCurrentGameState() instanceof LobbyState) {
             LobbyState lobbyState = (LobbyState) gameStateManager.getCurrentGameState();
             Main.getPlugin().getPlayers().remove(p);
-            e.setQuitMessage(Main.getPrefix() + "§a" +  p.getName() + "§7 hat das Spiel verlassen. §8[§e" + Main.getPlugin().getPlayers().size() + "§7/§e " + LobbyState.MAX_PLAYERS +"§8]");
+            e.setQuitMessage(Main.getPrefix() + "§a" +  p.getName() + "§7 hat das Spiel verlassen. §8[§e" + Main.getPlugin().getPlayers().size() + "§7/§e" + LobbyState.MAX_PLAYERS +"§8]");
             if(Main.getPlugin().getPlayers().size() < LobbyState.MIN_PLAYERS) {
                 if(lobbyState.getLobbyCountdown().isRunning()) {
                     lobbyState.getLobbyCountdown().cancel();
