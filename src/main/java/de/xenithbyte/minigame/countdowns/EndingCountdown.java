@@ -21,29 +21,24 @@ public class EndingCountdown extends Countdown {
             p.setHealth(20);
             p.setFoodLevel(20);
         }
-        taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(), new Runnable() {
-
-            @Override
-            public void run() {
-                switch (seconds) {
-                    case 10: case 5: case 4: case 3: case 2:
-                        Bukkit.broadcastMessage(Main.getPrefix() + "Der Server schließt in §c" + seconds + " §7Sekunden.");
-                        break;
-                    case 1:
-                        Bukkit.broadcastMessage(Main.getPrefix() + "Der Server schließt in §ceiner §7Sekunde.");
-                        break;
-                    case 0:
-                        Bukkit.getServer().shutdown();
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "stop");
-                        break;
-                    default:
-                        break;
-                }
-
-                seconds--;
+        taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(), () -> {
+            switch (seconds) {
+                case 10: case 5: case 4: case 3: case 2:
+                    Bukkit.broadcastMessage(Main.getPrefix() + "Der Server schließt in §c" + seconds + " §7Sekunden.");
+                    break;
+                case 1:
+                    Bukkit.broadcastMessage(Main.getPrefix() + "Der Server schließt in §ceiner §7Sekunde.");
+                    break;
+                case 0:
+                    Bukkit.getServer().shutdown();
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "stop");
+                    break;
+                default:
+                    break;
             }
 
-        },0, 20 * 1);
+            seconds--;
+        },0, 20);
     }
 
     @Override
