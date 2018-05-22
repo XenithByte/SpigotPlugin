@@ -4,7 +4,7 @@ import de.xenithbyte.minigame.countdowns.LobbyCountdown;
 
 public class LobbyState extends GameState {
 
-    public static final int MIN_PLAYERS = 1,
+    public static final int MIN_PLAYERS = 2,
                             MAX_PLAYERS = 4;
 
     private LobbyCountdown lobbyCountdown;

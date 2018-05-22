@@ -3,3 +3,5 @@ version: 1.0
 name: Skywars
 commands:
    start:
+   setlobby:
+   setspawn:

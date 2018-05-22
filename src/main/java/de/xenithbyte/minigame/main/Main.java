@@ -1,8 +1,11 @@
 package de.xenithbyte.minigame.main;
 
+import de.xenithbyte.minigame.commands.SetLobbyCommand;
+import de.xenithbyte.minigame.commands.SetSpawnCommand;
 import de.xenithbyte.minigame.commands.StartCommand;
 import de.xenithbyte.minigame.gamestates.GameState;
 import de.xenithbyte.minigame.gamestates.GameStateManager;
+import de.xenithbyte.minigame.listener.ChestClickListener;
 import de.xenithbyte.minigame.listener.PlayerConnectionListener;
 import de.xenithbyte.minigame.location.LocationManager;
 import org.bukkit.Bukkit;
@@ -36,9 +39,12 @@ public class Main extends JavaPlugin {
 
     private void init() {
         this.getCommand("start").setExecutor(new StartCommand());
+        this.getCommand("setlobby").setExecutor(new SetLobbyCommand());
+        this.getCommand("setspawn").setExecutor(new SetSpawnCommand());
 
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new PlayerConnectionListener(gameStateManager), this);
+        pm.registerEvents(new ChestClickListener(gameStateManager), this);
     }
 
     public static Main getPlugin() {
