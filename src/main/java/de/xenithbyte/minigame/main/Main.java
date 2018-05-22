@@ -5,8 +5,7 @@ import de.xenithbyte.minigame.commands.SetSpawnCommand;
 import de.xenithbyte.minigame.commands.StartCommand;
 import de.xenithbyte.minigame.gamestates.GameState;
 import de.xenithbyte.minigame.gamestates.GameStateManager;
-import de.xenithbyte.minigame.listener.ChestClickListener;
-import de.xenithbyte.minigame.listener.PlayerConnectionListener;
+import de.xenithbyte.minigame.listener.*;
 import de.xenithbyte.minigame.location.LocationManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -37,6 +36,11 @@ public class Main extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(prefix + "Das Plugin ist gestartet.");
     }
 
+    @Override
+    public void onDisable() {
+        MapResetListener.restore();
+    }
+
     private void init() {
         this.getCommand("start").setExecutor(new StartCommand());
         this.getCommand("setlobby").setExecutor(new SetLobbyCommand());
@@ -45,6 +49,9 @@ public class Main extends JavaPlugin {
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new PlayerConnectionListener(gameStateManager), this);
         pm.registerEvents(new ChestClickListener(gameStateManager), this);
+        pm.registerEvents(new PlayerDeathListener(), this);
+        pm.registerEvents(new AutoSmeltListener(), this);
+        pm.registerEvents(new MapResetListener(), this);
     }
 
     public static Main getPlugin() {
