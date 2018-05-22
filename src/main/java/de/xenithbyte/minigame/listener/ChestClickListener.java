@@ -38,10 +38,10 @@ public class ChestClickListener implements Listener {
                 Chest c = (Chest)e.getClickedBlock().getState();
                 if(!chests.contains(c)) {
                     Random random = new Random();
-                    int maxItems = 4 + random.nextInt(3);
+                    int maxItems = 5 + random.nextInt(4);
                     while (maxItems != 0) {
                         maxItems--;
-                        int slot = random.nextInt(20);
+                        int slot = random.nextInt(26);
                         int item = random.nextInt(items.size() - 1);
 
                         c.getBlockInventory().setItem(slot, items.get(item));
@@ -72,7 +72,7 @@ public class ChestClickListener implements Listener {
 
     @EventHandler
     public void handleBlockPlacing(BlockPlaceEvent e) {
-        Player p = (Player)e.getPlayer();
+        Player p = e.getPlayer();
         if(gameStateManager.getCurrentGameState() instanceof IngameState) {
             if(e.getBlock().getType() == Material.CHEST) {
                 p.sendMessage(Main.getPrefix() + "§cDu darfst keine Kisten platzieren!");
@@ -131,9 +131,9 @@ public class ChestClickListener implements Listener {
 
         items.add(new ItemStack(Material.LAPIS_BLOCK, 4));
 
-        items.add(new ItemStack(Material.IRON_INGOT, 8));
+        items.add(new ItemStack(Material.IRON_INGOT, new Random().nextInt(4) + 4));
 
-        items.add(new ItemStack(Material.DIAMOND, 4));
+        items.add(new ItemStack(Material.DIAMOND, new Random().nextInt(4) + 2));
 
         items.add(new ItemStack(Material.STICK, new Random().nextInt(9) + 1));
 

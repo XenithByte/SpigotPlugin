@@ -39,6 +39,7 @@ public class IngameCountdown extends Countdown {
                     default:
                         break;
                 }
+                seconds--;
             }
         }, 0, 20 * 1);
     }

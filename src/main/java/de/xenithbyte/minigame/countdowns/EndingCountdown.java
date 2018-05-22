@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 
 public class EndingCountdown extends Countdown {
 
-
     private int seconds = 10;
 
     @Override
