@@ -41,11 +41,11 @@ public class ChestClickListener implements Listener {
                 } else {
                     Random random = new Random();
                     int maxItems = random.nextInt(6) + 1;
-                    Inventory inventory = Bukkit.createInventory(null, InventoryType.CHEST);
+                    Inventory inventory = Bukkit.createInventory(null, 21, "§bKiste");
                     while (maxItems != 0) {
                         maxItems--;
-                        int slot = random.nextInt(27);
-                        int item = random.nextInt(items.size());
+                        int slot = random.nextInt(20);
+                        int item = random.nextInt(items.size() - 1);
 
                         inventory.setItem(slot, items.get(item));
                     }
@@ -126,6 +126,16 @@ public class ChestClickListener implements Listener {
         items.add(new ItemStack(Material.LAPIS_BLOCK, 2));
         items.add(new ItemStack(Material.LAPIS_BLOCK, 1));
         items.add(new ItemStack(Material.LAPIS_BLOCK, 3));
+
+        items.add(new ItemStack(Material.IRON_INGOT, 8));
+        items.add(new ItemStack(Material.IRON_INGOT, 9));
+        items.add(new ItemStack(Material.IRON_INGOT, 7));
+        items.add(new ItemStack(Material.IRON_INGOT, 4));
+        items.add(new ItemStack(Material.IRON_INGOT, 5));
+
+        items.add(new ItemStack(Material.DIAMOND, 4));
+        items.add(new ItemStack(Material.DIAMOND, 1));
+        items.add(new ItemStack(Material.DIAMOND, 2));
 
         //food
         items.add(new ItemStack(Material.APPLE, new Random().nextInt(9) + 1));
